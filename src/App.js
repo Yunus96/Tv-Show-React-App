@@ -1,15 +1,25 @@
-import Navbar from './components/Navbar'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+//COMPONENTS
+import Navbar from './components/Navbar';
+
+//Pages
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import SinglePage from './pages/SinglePage';
 
 const App = ()=> {
   return (
-    <div>
+    <Router>
       <Navbar />
       <div className='container'>
-        {/* Home page route */}
-        {/* about page */}
-        {/* single page route */}
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/about" component={AboutPage} />
+          <Route path="/singleshow/:id" component={SinglePage} />
+        </Switch>
       </div>
-    </div>
+    </Router>
   );
 }
 
